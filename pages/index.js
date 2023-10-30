@@ -1,5 +1,8 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import {Greeting, MyFavFood} from './Greeting';
+import React from 'react' /* Need this import to add reacts */
+import ReactDOM from 'react-dom/client'
 
 export default function Home() {
   return (
@@ -13,6 +16,11 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+        
+        <React.StrictMode>
+          <Greeting />
+          <MyFavFood/>
+          </React.StrictMode>
 
         <p className={styles.description}>
           Get started by editing <code>pages/index.js</code>
