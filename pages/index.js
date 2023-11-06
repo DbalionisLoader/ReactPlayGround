@@ -15,7 +15,9 @@ Return 2: A for each element of animal, return a listItem function with animal k
 function List(props){
   return (
     <ul>
-      {props.animals.map((animal) => { return <ListItem key={animal} animal={animal}/>; 
+      {props.animals.map((animal) => { return animal.startsWith("L") ? <ListItem key={animal} animal={animal}/> : null; 
+      //The variable passed to component (animal =) has to be the identical name to the declared name in the component above Listitem
+      //CONDITIONALS: User ternary operator to either display li or not depending on string start letter
       })}
     </ul>
   );
@@ -23,8 +25,8 @@ function List(props){
 
 
 export default function Home() {
-  const animals = ["Lion", "Cow", "Snake", "Lizard"];
-  const animalsList = animals.map((animal) => <li key={animal}>{animal}</li>)
+  const animals = ["Lion", "Cow", "Snake", "Lizard","Wolf"];
+/*   const animalsList = animals.map((animal) => <li key={animal}>{animal}</li>) */
   return (
     <div className={styles.container}>
       <Head>
@@ -37,14 +39,10 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
         
-        <h2>Animal Array List</h2>
         <div>
-        <h1>Animals: </h1>
-        <ul>
-        {animalsList}
-       </ul>
-    </div>
-
+        <h2>Animal Array List</h2>
+        <List animals={animals}/>  
+        </div>
         <React.StrictMode>
           </React.StrictMode>
 
