@@ -1,10 +1,30 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import {Greeting, MyFavFood} from './Greeting';
+import {Greeting, MyFavFood, OdinTestList} from './Greeting';
 import React from 'react' /* Need this import to add reacts */
 import ReactDOM from 'react-dom/client'
 
+/* Basic function to trun a single li of a animal */
+function ListItem(props){
+  return <li>{props.animal}</li>
+}
+
+/* A nested function of a list
+Return 1: a ul list of animal
+Return 2: A for each element of animal, return a listItem function with animal key and animal name */
+function List(props){
+  return (
+    <ul>
+      {props.animals.map((animal) => { return <ListItem key={animal} animal={animal}/>; 
+      })}
+    </ul>
+  );
+}
+
+
 export default function Home() {
+  const animals = ["Lion", "Cow", "Snake", "Lizard"];
+  const animalsList = animals.map((animal) => <li key={animal}>{animal}</li>)
   return (
     <div className={styles.container}>
       <Head>
@@ -17,55 +37,22 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
         
+        <h2>Animal Array List</h2>
+        <div>
+        <h1>Animals: </h1>
+        <ul>
+        {animalsList}
+       </ul>
+    </div>
+
         <React.StrictMode>
-          <Greeting />
-          <MyFavFood/>
           </React.StrictMode>
 
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
       </main>
 
       <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
+     
       </footer>
 
       <style jsx>{`
