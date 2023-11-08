@@ -1,3 +1,6 @@
+import '../styles/Home.module.css';
+import styles from '../styles/Home.module.css';
+
 function Greeting(){
     return <h1>&quot;I swear by my pretty floral bonnet, I will end you.&quot;</h1>;
 }
@@ -23,4 +26,17 @@ function OdinTestList(){
     );
 }
 
-export { Greeting, MyFavFood, OdinTestList };
+/* Card function with children and title props */
+function Card({ children, title="default title" }) {
+    return (
+      <div className={styles.card}>
+        <div className={styles.cardContent}>
+          <h1>{title}</h1>
+          {children}
+        </div>
+      </div>
+    );
+  }
+
+
+export { Greeting, MyFavFood, OdinTestList, Card };

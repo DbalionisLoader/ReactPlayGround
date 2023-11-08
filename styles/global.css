@@ -30,3 +30,8 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.card{
+  border: solid 1px black;
+  padding: 8px;
+}

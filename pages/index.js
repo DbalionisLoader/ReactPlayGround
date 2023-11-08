@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import {Greeting, MyFavFood, OdinTestList} from './Greeting';
+import {Greeting, MyFavFood, OdinTestList, Card} from './Greeting';
 import React from 'react' /* Need this import to add reacts */
 import ReactDOM from 'react-dom/client'
 import { Fragment } from 'react';
@@ -74,11 +74,12 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
         
-        <div>
-        <h2>Animal Array List</h2>
+        <Card title="Animal Array List">
         <List animals={animals}/>  
-        </div>
+        </Card>      
+        <Card title="Haiku">
         <Poem />
+        </Card> 
         <React.StrictMode>
           </React.StrictMode>
 
